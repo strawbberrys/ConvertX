@@ -7,6 +7,12 @@
             "ConvertX": {
                 "$path": "src"
             }
+        },
+        "HttpService": {
+            "$className": "HttpService",
+            "$properties": {
+                "HttpEnabled": true
+            }
         }
     }
 }
