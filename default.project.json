@@ -1,0 +1,12 @@
+{
+    "name": "ConvertX",
+    "tree": {
+        "$className": "DataModel",
+        "ServerStorage": {
+            "$className": "ServerStorage",
+            "ConvertX": {
+                "$path": "src"
+            }
+        }
+    }
+}
