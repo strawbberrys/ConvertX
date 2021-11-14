@@ -5,16 +5,7 @@
         "ServerStorage": {
             "$className": "ServerStorage",
             "ConvertX": {
-                "$path": "src",
-                "DumpParser": {
-                    "$path": "src/modules/DumpParser",
-                    "Request": {
-                        "$path": "src/modules/DumpParser/Request",
-                        "Promise": {
-                            "$path": "src/modules/DumpParser/Request/Promise"
-                        }
-                    }
-                }
+                "$path": "src"
             }
         }
     }
