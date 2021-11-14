@@ -1,3 +1,0 @@
-[submodule "src/modules/DumpParser/Request"]
-	path = src/modules/DumpParser/Request
-	url = https://github.com/ClockworkSquirrel/request
