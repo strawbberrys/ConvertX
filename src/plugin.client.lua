@@ -10,7 +10,7 @@ local function convert_selection()
     local start_time = os.clock()
 
     for index, selection in ipairs(selection:Get()) do
-        converter:Convert(selection)
+        converter.Convert(selection)
     end
 
     test_service:Message("✔️ Converted in " .. os.clock() - start_time .. " seconds!")
