@@ -26,6 +26,8 @@ do
             return types[userdata_type]:format(userdata.r, userdata.g, userdata.b)
         elseif (userdata_type == "CFrame") then
              return types[userdata_type]:format(userdata:GetComponents())
+        elseif (userdata_type == "Color3") then
+            return types[userdata_type]:format(userdata.R * 255, userdata.G * 255, userdata.B * 255)
         elseif (userdata_type == "ColorSequence" or userdata_type == "NumberSequence") then
             local parsed_sequence = ""
 
