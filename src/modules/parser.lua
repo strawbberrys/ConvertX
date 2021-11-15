@@ -55,7 +55,7 @@ do
         elseif (userdata_type == "UDim") then
             return types[userdata_type]:format(parser.TrimNumber(userdata.Scale), userdata.Offset)
         elseif (userdata_type == "UDim2") then
-            return types[userdata_type]:format(parser.TrimNumber(userdata.Scale.X), userdata.Offset.X, parser.TrimNumber(userdata.Scale.Y), userdata.Offset.Y)
+            return types[userdata_type]:format(parser.TrimNumber(userdata.X.Scale), userdata.X.Offset, parser.TrimNumber(userdata.Y.Scale), userdata.Y.Offset)
         elseif (userdata_type == "Vector2") then
             return types[userdata_type]:format(userdata.X, userdata.Y)
         elseif (userdata_type == "Vector3") then
@@ -64,7 +64,7 @@ do
     end
     
     function parser.TrimNumber(number, amount)
-        return number - number % amount or 0.001
+        return number - number % (amount or 0.001)
     end
 
     parser.types = types
