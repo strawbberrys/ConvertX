@@ -37,8 +37,8 @@ do
         for index, property in ipairs(property_list) do
             local value = instance[property]
 
-            if (default_value_list[property] ~= value) then
-                _properties[property] = parser.Parse(value)
+            if (property ~= "Parent" and default_value_list[property] ~= value) then
+                _properties[property] = (property == "ClassName" and value) or parser.Parse(value)
             end
         end
 
