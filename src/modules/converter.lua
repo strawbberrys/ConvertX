@@ -7,7 +7,7 @@ do
     local cached_properties, cached_default_values = {}, {}
 
     function converter.BuildProperties(instance)
-        local _instance = {}
+        local _properties = {}
         local property_list, default_value_list = cached_properties[instance.ClassName], cached_default_values[instance.ClassName]
 
         if (not property_list or not default_value_list) then
@@ -38,21 +38,21 @@ do
             local value = instance[property]
 
             if (default_value_list[property] ~= value) then
-                _instance[property] = parser.Parse(value)
+                _properties[property] = parser.Parse(value)
             end
         end
 
-        return _instance
+        return _properties
     end
 
-    function converter.ConvertToTable(instance, convert_single)
-        local converted = ""
+    function converter.BuildInstance(instance, with_descendants)
+        local _instance = {}
 
-        local instance_dictonary = {}
-
-        for index, object in ipairs(instance:GetDescendants()) do
+        for index, object in ipairs(instance:GetChildren()) do
             
         end
+
+        return _instance
     end
 end
 

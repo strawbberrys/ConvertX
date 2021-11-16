@@ -13,7 +13,7 @@ do
         Rect = "Rect.new(%f, %f, %f, %f)",
         string = "\"%s\"",
         UDim = "UDim.new(%f, %d)",
-        UDim2 = "UDim2.new(%f, %d, %f, %d)",
+        UDim2 = "UDim2.new(%f, %d, %f, %d)", -- maybe add a limit of 3 the float amount
         Vector2 = "Vector2.new(%e, %e)",
         Vector3 = "Vector3.new(%e, %e, %e)"
     }
@@ -54,6 +54,8 @@ do
             return types[userdata_type]:format(userdata.Density, userdata.Friction, userdata.Elasticity, userdata.FrictionWeight, userdata.ElasticityWeight)
         elseif (userdata_type == "Rect") then
             return types[userdata_type]:format(userdata.Max.X, userdata.Max.Y, userdata.Min.X, userdata.Min.Y)
+        elseif (userdata_type == "string") then
+            return types[userdata_type]:format(userdata:gsub("\\", "\\\\"))
         elseif (userdata_type == "UDim") then
             return types[userdata_type]:format(parser.TrimNumber(userdata.Scale), userdata.Offset)
         elseif (userdata_type == "UDim2") then
@@ -63,6 +65,8 @@ do
         elseif (userdata_type == "Vector3") then
             return types[userdata_type]:format(userdata.X, userdata.Y, userdata.Z)
         end
+
+        return userdata
     end
     
     function parser.TrimNumber(number, amount)
