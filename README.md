@@ -17,8 +17,8 @@ This documentation was made so you can debug and test functions used in the plgu
   - <span class="hljs-keyword">\<Dictonary></span> BuildProperties(<span class="hljs-keyword">\<Instance></span> instance)
     - Returns a dictonary of every property of the instance and its formatted value. If the value is the same as one created with Instance.new, then the property will not be returned in the dictonary.<br/>
     *Note that the ClassName property will not be returned formatted and the Parent property will not be returned at all.*
-  - <span class="hljs-keyword">\<Dictonary></span> BuildInstance(<span class="hljs-keyword">\<Instance></span> instance, <span class="hljs-keyword">\<Boolean?></span> include_children)
-    - If the include_children argument is true which by default it is, then it returns the instance as a dictonary including its children recursivly. If not, then it will just return the instance as a dictonary.
+  - <span class="hljs-keyword">\<Dictonary></span> BuildInstance(<span class="hljs-keyword">\<Instance></span> instance, <span class="hljs-keyword">\<Boolean?></span> with_descendants)
+    - If the with_descendants argument is true which by default it is, then it returns the instance as a dictonary including its descendants in the children key. If not, then it will just return the instance as a dictonary.
   - <span class="hljs-keyword">\<String></span> ToLua(<span class="hljs-keyword">\<Dictonary></span> instance_dictonary, <span class="hljs-keyword">\<Dictonary></span> options)
     - Returns the instance_dictonary created by BuildInstance converted into a working Lua script formatted with options.
 - modules.parser

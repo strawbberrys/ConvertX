@@ -12,7 +12,7 @@ do
 
         if (not property_list or not default_value_list) then
             if (not property_list) then
-                property_list = {}
+                property_list = {"ClassName"}
 
                 for index, property in ipairs(property_parser:GetPropertyList(instance.ClassName)) do
                     table.insert(property_list, property)
@@ -37,7 +37,7 @@ do
         for index, property in ipairs(property_list) do
             local value = instance[property]
 
-            if (property ~= "Parent" and default_value_list[property] ~= value) then
+            if (property == "ClassName" or property ~= "Parent" and default_value_list[property] ~= value) then
                 _properties[property] = (property == "ClassName" and value) or parser.Parse(value)
             end
         end
@@ -46,10 +46,28 @@ do
     end
 
     function converter.BuildInstance(instance, with_descendants)
-        local _instance = {}
+        local _instance = converter.BuildProperties(instance)
 
-        for index, object in ipairs(instance:GetChildren()) do
-            
+        if (with_descendants) then
+            local instance_children = instance:GetChildren()
+
+            if (#instance_children ~= 0) then
+                _instance.children = {}
+
+                for index, object in ipairs(instance_children) do
+                    local object_children = object:GetChildren()
+
+                    _instance.children[object.Name] = converter.BuildProperties(object)
+
+                    if (#object_children ~= 0) then
+                        _instance.children[object.Name].children = {}
+
+                        for _index, _object in ipairs(object_children) do
+                            _instance.children[object.Name].children[_object.Name] = converter.BuildProperties(_object)
+                        end
+                    end
+                end
+            end
         end
 
         return _instance
