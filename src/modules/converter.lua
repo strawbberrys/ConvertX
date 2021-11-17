@@ -48,7 +48,7 @@ do
     function converter.BuildInstance(instance, with_descendants)
         local _instance = converter.BuildProperties(instance)
 
-        if (with_descendants) then
+        if (with_descendants ~= false) then
             local instance_children = instance:GetChildren()
 
             if (#instance_children ~= 0) then
