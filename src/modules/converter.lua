@@ -55,22 +55,16 @@ do
                 _instance.children = {}
 
                 for index, object in ipairs(instance_children) do
-                    local object_children = object:GetChildren()
-
-                    _instance.children[object.Name] = converter.BuildProperties(object)
-
-                    if (#object_children ~= 0) then
-                        _instance.children[object.Name].children = {}
-
-                        for _index, _object in ipairs(object_children) do
-                            _instance.children[object.Name].children[_object.Name] = converter.BuildProperties(_object)
-                        end
-                    end
+                    _instance.children[object.Name] = converter.BuildInstance(object)
                 end
             end
         end
 
         return _instance
+    end
+
+    function converter.Convert(instance, options)
+    
     end
 end
 
