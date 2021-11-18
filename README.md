@@ -11,7 +11,7 @@ You can build the rbxlx file using the [Rojo](https://rojo.space/) VSCode plugin
 Once you build the rbxlx file, open it and save the ConvertX folder in ServerStorage as a local plugin. *The rbxlx file includes a test gui to convert in StarterGui.*
 
 ## Documentation
-This documentation was made so you can debug and test functions used in the plguin. *"modules" refers to ServerStorage.ConvertX.modules.*
+This documentation was made so you can debug and test functions used in the plugin. *"modules" refers to ServerStorage.ConvertX.modules.*
 
 - modules.converter
   - <span class="hljs-keyword">\<Dictonary></span> BuildProperties(<span class="hljs-keyword">\<Instance></span> instance)
