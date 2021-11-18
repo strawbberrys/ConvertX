@@ -12,8 +12,8 @@ do
         PhysicalProperties = "PhysicalProperties.new(%f, %f, %f, %f, %f)",
         Rect = "Rect.new(%f, %f, %f, %f)",
         string = "%q",
-        UDim = "UDim.new(%f, %d)",
-        UDim2 = "UDim2.new(%f, %d, %f, %d)", -- maybe add a limit of 3 the float amount
+        UDim = "UDim.new(%.3f, %d)",
+        UDim2 = "UDim2.new(%.3f, %d, %.3f, %d)",
         Vector2 = "Vector2.new(%g, %g)",
         Vector3 = "Vector3.new(%g, %g, %g)"
     }
@@ -57,9 +57,9 @@ do
         elseif (userdata_type == "string") then
             return types[userdata_type]:format(value)
         elseif (userdata_type == "UDim") then
-            return types[userdata_type]:format(parser.TrimNumber(value.Scale), value.Offset)
+            return types[userdata_type]:format(value.Scale, value.Offset)
         elseif (userdata_type == "UDim2") then
-            return types[userdata_type]:format(parser.TrimNumber(value.X.Scale), value.X.Offset, parser.TrimNumber(value.Y.Scale), value.Y.Offset)
+            return types[userdata_type]:format(value.X.Scale, value.X.Offset, value.Y.Scale, value.Y.Offset)
         elseif (userdata_type == "Vector2") then
             return types[userdata_type]:format(value.X, value.Y)
         elseif (userdata_type == "Vector3") then
@@ -67,10 +67,6 @@ do
         end
 
         return value
-    end
-    
-    function parser.TrimNumber(number, amount)
-        return number - number % (amount or 0.001)
     end
 
     parser.types = types
