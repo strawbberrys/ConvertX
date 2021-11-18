@@ -3,7 +3,7 @@ local parser = {}
 do
     local types = {
         BrickColor = "BrickColor.new(%f, %f, %f)",
-        CFrame = "CFrame.new(%e, %e, %e, %e, %e, %e, %e, %e, %e, %e, %e, %e)",
+        CFrame = "CFrame.new(%g, %g, %g, %g, %g, %g, %g, %g, %g, %g, %g, %g)",
         Color3 = "Color3.fromRGB(%d, %d, %d)",
         ColorSequence = "ColorSequence.new({%s})",
         ColorSequenceKeypoint = "ColorSequenceKeypoint.new(%f, %s)",
@@ -14,8 +14,8 @@ do
         string = "%q",
         UDim = "UDim.new(%f, %d)",
         UDim2 = "UDim2.new(%f, %d, %f, %d)", -- maybe add a limit of 3 the float amount
-        Vector2 = "Vector2.new(%e, %e)",
-        Vector3 = "Vector3.new(%e, %e, %e)"
+        Vector2 = "Vector2.new(%g, %g)",
+        Vector3 = "Vector3.new(%g, %g, %g)"
     }
 
     function parser.Parse(value)
