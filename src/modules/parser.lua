@@ -11,7 +11,7 @@ do
         NumberSequenceKeypoint = "NumberSequenceKeypoint.new(%f, %f, %f)",
         PhysicalProperties = "PhysicalProperties.new(%f, %f, %f, %f, %f)",
         Rect = "Rect.new(%f, %f, %f, %f)",
-        string = "\"%s\"",
+        string = "%q",
         UDim = "UDim.new(%f, %d)",
         UDim2 = "UDim2.new(%f, %d, %f, %d)", -- maybe add a limit of 3 the float amount
         Vector2 = "Vector2.new(%e, %e)",
@@ -55,7 +55,7 @@ do
         elseif (userdata_type == "Rect") then
             return types[userdata_type]:format(value.Max.X, value.Max.Y, value.Min.X, value.Min.Y)
         elseif (userdata_type == "string") then
-            return types[userdata_type]:format(value:gsub("\\", "\\\\"))
+            return types[userdata_type]:format(value)
         elseif (userdata_type == "UDim") then
             return types[userdata_type]:format(parser.TrimNumber(value.Scale), value.Offset)
         elseif (userdata_type == "UDim2") then
