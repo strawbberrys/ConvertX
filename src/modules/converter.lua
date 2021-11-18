@@ -58,7 +58,6 @@ do
     end
 
     function converter.BuildInstance(instance, with_descendants, name_list)
-        -- gonna need to add name fixing here so when theres multiple instances with the same name it adds a number suffix to them
         local _instance = converter.BuildProperties(instance)
 
         if (with_descendants ~= false) then
